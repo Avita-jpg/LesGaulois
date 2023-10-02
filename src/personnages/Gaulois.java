@@ -24,7 +24,12 @@ public class Gaulois {
 
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		romain.recevoirCoup(force / 3);
+		romain.recevoirCoup((force / 3) * effetPotion);
+	}
+
+	public void boirePotion(int forcePotion) {
+		effetPotion = forcePotion;
+		parler("Merci Druide, je sens que ma force est " + effetPotion + " fois découplée.");
 	}
 
 	@Override
@@ -37,10 +42,14 @@ public class Gaulois {
 		System.out.println(asterix);
 
 		Romain jules = new Romain("Jules", 10);
+		Druide panoramix = new Druide("Panoramix", 5, 10);
 
 		// parler fait appel à la méthode prendreParole
 		asterix.parler("Je suis " + asterix.nom + "! Je voudrais bien frapper un romain.");
+		panoramix.preparerPotion();
+		asterix.boirePotion(panoramix.getForcePotion());
 		asterix.frapper(jules);
+
 	}
 
 }
