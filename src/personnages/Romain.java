@@ -57,7 +57,7 @@ public class Romain {
 //			parler("J'abandonne...");
 //		}
 		
-		if (force == 0) {
+		if (force >= 0) {
 			parler("Aïe");
 		} else { 
 			equipementEjecte = ejecterEquipement();
@@ -99,6 +99,7 @@ public class Romain {
 				equipements[i] = null;
 			}
 		}
+		nbEquipement -= nbEquipementEjecte;
 		return equipementEjecte;
 	}
 
