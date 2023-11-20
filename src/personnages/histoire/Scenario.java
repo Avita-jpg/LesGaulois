@@ -3,6 +3,7 @@ package personnages.histoire;
 import personnages.Druide;
 import personnages.Equipement;
 import personnages.Gaulois;
+import personnages.Musee;
 import personnages.Romain;
 //import villagegaulois.Musee;
 
@@ -26,17 +27,15 @@ public class Scenario {
 		minus.parler("UN GAU... UN GAUGAU...");
 		do {
 			asterix.frapper(minus);
-		} while (minus.getForce() > 0);
+		} while (minus.isVainqueur());
 		milexcus.parler("UN GAU... UN GAUGAU...");
 		do {
 			asterix.frapper(milexcus);
-		} while (milexcus.getForce() > 0);
-		
-//		Partie a decommenter
-		
-//		Musee musee = new Musee();
-//		asterix.faireUneDonnation(musee);
+		} while (milexcus.isVainqueur());
 
+		Musee musee = new Musee();
+		asterix.faireUneDonnation(musee);
+		System.out.println(musee.extraireInstructionsOCaml());
 	}
 
 }
